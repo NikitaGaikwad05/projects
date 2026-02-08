@@ -7,10 +7,15 @@ function getWeather() {
     }
 
     const apiKey = "a856f2e33073481eb22191554260602";
-    const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}&aqi=no`;
+    const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}&aqi=no`;
 
     fetch(apiUrl)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
         .then(data => {
             const weatherResult = document.getElementById("weatherResult");
 
@@ -25,7 +30,7 @@ function getWeather() {
             }
         })
         .catch(error => {
-            console.error(error);
+            console.error("Fetch error:", error);
             document.getElementById("weatherResult").innerHTML =
                 `<p>⚠ Error fetching data</p>`;
         });
