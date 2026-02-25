@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Advanced Password Strength Checker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h2>Password Strength Checker</h2>
+
+    <div class="input-group">
+      <input type="password" id="password" placeholder="Enter your password">
+      <span id="toggle">👁</span>
+    </div>
+
+    <div class="strength-container">
+      <p>Strength: <span id="strength-label">-</span></p>
+      <div class="strength-meter">
+        <div class="strength-bar"></div>
+      </div>
+    </div>
+
+    <ul class="tips">
+      <li id="length-tip">❌ At least 8 characters</li>
+      <li id="uppercase-tip">❌ At least 1 uppercase letter</li>
+      <li id="lowercase-tip">❌ At least 1 lowercase letter</li>
+      <li id="number-tip">❌ At least 1 number</li>
+      <li id="symbol-tip">❌ At least 1 special character</li>
+    </ul>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
